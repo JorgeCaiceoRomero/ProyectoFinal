@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>Registro Producto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    	  .jumbotron label {
+    font-size:12px;    
+}
+
+.reg-icon{
+    color:#5bc0de;
+    font-weight:bold;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4) !important;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: #5bc0de;
+}
+
+.prj-name{
+    font-weight:bold;
+    color:#5bc0de;
+}
+                                        
+    </style>
+</head>
+<body>
+                        
+
+<link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<div class="container bootstrap snippets bootdey">
+  <div class="header">
+   
+    <div th:insert="@{header.html}"></div>
+  </div>
+
+  <div class="jumbotron text-center" style="height:1000px">
+    <div class="col-md-10 col-md-offset-2">
+        <form class="form-horizontal" role="form" th:object="${producto}" th:action="@{/productos/registro}" method="post">
+           
+            <div class="form-group text-center">
+                <div class="col-sm-10 reg-icon">
+                    <span class="fa fa-user fa-3x">Nuevo Producto</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Nombre</label><input type="text" class="form-control" id="name" placeholder="Nombre" th:field="*{nombre}">
+                </div>
+              </div>
+              
+              
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Precio</label><input type="text" class="form-control" id="inputEmail3" placeholder="Precio" th:field="*{precio}">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Descripción</label><input type="text" class="form-control" id="inputPassword3" placeholder="Descripción" th:field="*{descripcion}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Imagen</label><input type="text" class="form-control" id="inputEmail3" placeholder="Imagen" th:field="*{imagen}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-info">
+                    <span >Confirmar</span>
+                    
+                  </button>
+                </div>
+              </div>
+        </form>
+    </div>
+  </div>
+  <div th:insert="@{footer.html}"></div>
+                                      
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	                              
+</script>
+</body>
+</html>

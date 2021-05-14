@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+<!--  All snippets are MIT license http://bootdey.com/license -->
+<title>Carrito</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<style type="text/css">
+.img-cart {
+	display: block;
+	max-width: 50px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table tr td {
+	border: 1px solid #FFFFFF;
+}
+
+table tr th {
+	background: #eee;
+}
+
+.panel-shadow {
+	box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+}
+</style>
+</head>
+<body>
+	<div th:insert="@{header.html}"></div>
+	<link rel="stylesheet" type="text/css"
+		href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+	<div class="container bootstrap snippets bootdey">
+		<div class="col-md-9 col-sm-8 content">
+			<div class="row">
+				<div class="col-md-12">
+					<ol class="breadcrumb">
+						<li><a href="#">Home</a></li>
+						<li class="active">Cart</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-info panel-shadow">
+						<div class="panel-heading">
+							<h3>
+								<img class="img-circle img-thumbnail"
+									th:src="@{/imgs/carro.png}"> CARRITO
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
+										<tr>
+											<th></th>
+											<th>Producto</th>
+											<th>Descripción</th>
+											<th>Precio</th>
+
+										</tr>
+									</thead>
+									<!--   <tbody>
+                                <tr th:each="producto : ${carrito}">
+                                    <td><img th:src="@{/imgs/bayern.jpg}" class="img-cart"></td>
+                                    <td><strong><label th:text="${producto.nombre}"></label></strong></td>
+                                    <td><strong><label th:text="${producto.precio}"></label></strong></td>        
+                                </tr>
+                                -->
+									<tbody>
+										<tr th:each="producto : ${session.carrito}">
+											<td><img th:src="${producto.imagen}" class="img-cart"></td>
+											<td><strong><span th:text="${producto.nombre}"></span></strong></td>
+											<td><strong><span
+													th:text="${producto.descripcion}"></span></strong></td>
+											<td><strong><span th:text="${producto.precio}"></span></strong></td>
+											<td><a
+												th:href="@{/productos/del/carrito/}+${producto.id}"
+												class="btn btn-danger  btn-xs glyphicon glyphicon-trash"
+												title="Borrar"></a></td>
+
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!--  -->
+					 <a th:href="@{/}" class="btn btn-success"><span
+						class="glyphicon glyphicon-arrow-left"></span>&nbsp;Volver al
+						catálogo</a> 
+						<form th:action="@{/productos/pedido}" method="get" >
+						
+						<select id="mPago" name="mPago">
+						<option th:each="pago: ${session.metodosPago}"
+							th:value="${pago}" th:text="${pago}"
+							th:selected="false"></option>
+						</select>
+						<input type="submit" value="Confirmar Compra"/>
+						<!-- <a th:href="@{/productos/pedido}"
+						class="btn btn-primary pull-right">Confirmar Compra<span></span></a> -->
+					</form>
+						
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:insert="@{footer.html}"></div>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script
+		src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>

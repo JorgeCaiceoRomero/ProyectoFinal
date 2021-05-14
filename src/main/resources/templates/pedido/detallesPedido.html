@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <link rel="stylesheet" th:href="@{/css/user_list.css}">
+  
+    <title>Detalles Pedido</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    	.list-content{
+ min-height:300px;
+}
+.list-content .list-group .title{
+  background:#5bc0de;
+  border:2px solid #DDDDDD;
+  font-weight:bold;
+  color:#FFFFFF;
+}
+.list-group-item img {
+    height:80px; 
+    width:80px;
+}
+
+.jumbotron .btn {
+    padding: 5px 5px !important;
+    font-size: 12px !important;
+}
+.prj-name {
+    color:#5bc0de;    
+}
+.break{
+    width:100%;
+    margin:20px;
+}
+.name {
+    color:#5bc0de;    
+}
+    </style>
+ 
+</head>
+<body>
+
+<div th:insert="@{header.html}"></div>
+<!--  
+<link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+-->
+<div class="container bootstrap snippets bootdey">
+
+  <div class="header">
+    <h3 class="text-muted prj-name">
+        <span class="fa fa-shopping-cart fa-2x principal-title"></span>
+        Detalles Pedido: 
+    </h3>
+  </div>
+
+
+  <div class="jumbotron list-content">
+    <ul class="list-group">
+      <li class="list-group-item title">
+        Detalles Pedido
+      </li>
+      <tr th:each="detallePedido: ${listaDetallePedido}">
+	      <li href="" class="list-group-item text-left">
+	          
+	        <label class="name">
+	          Precio unidad: <span th:text="${detallePedido.precioUnidades}"/> €
+	        </label>
+	        <label class="name" th:each="producto: ${listaProductos}">
+	         <div th:if="${producto.id}==${detallePedido.productos}"> Producto:<span th:text="${producto.nombre}"/></div> 
+	        </label>
+	        <label class="name" th:each="producto: ${listaProductos}">
+	         <div th:if="${producto.id}==${detallePedido.productos}"> Descripción:<span th:text="${producto.descripcion}"/></div> 
+	        </label>
+	        
+	        <div>
+	        <label class="name" th:each="producto: ${listaProductos}">
+	         	<div th:if="${producto.id}==${detallePedido.productos}"><img th:src="${producto.imagen}"/></div> 
+	        </label> 
+	        </div>     	        
+	        <div class="break"></div>
+	      </li>
+	    </tr>
+	    <li class="list-group-item title" >
+        
+      </li>
+      </form>
+    </ul>
+  </div>
+  </div>
+</div>
+<!--                                                                              
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+-->
+<div th:insert="footer.html"></div>
+</body>
+</html>

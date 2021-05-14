@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>Ver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    	  .jumbotron label {
+    font-size:12px;    
+}
+
+.reg-icon{
+    color:#5bc0de;
+    font-weight:bold;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4) !important;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: #5bc0de;
+}
+
+.prj-name{
+    font-weight:bold;
+    color:#5bc0de;
+}
+                                        
+    </style>
+</head>
+<body>
+                        
+
+<link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+  <div class="header">
+   
+    <div th:insert="@{header.html}"></div>
+  </div>
+
+  <div class="jumbotron text-center" style="height:1000px">
+    <div class="col-md-10 col-md-offset-2">
+        <form class="form-horizontal" role="form" th:object="${usuario}" th:action="@{/usuarios/editar}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            
+            <div class="form-group text-center">
+                <div class="col-sm-10 reg-icon">
+                    <span class="fa fa-user fa-3x">Ver</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Nombre</label><input readonly="readonly" type="text" class="form-control" id="name" placeholder="Nombre" th:field="*{nombre}">
+                </div>
+              </div>
+              
+               <div th:if="${session.usuario.idRol==1}" class="form-group">
+               
+                <div class="col-sm-10">
+                   <label>Rol</label><input readonly="readonly" type="text" class="form-control" id="name" placeholder="Rol" th:field="*{idRol}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Email</label><input readonly="readonly" type="email" class="form-control" id="inputEmail3" placeholder="Email" th:field="*{email}">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Contraseña</label><input readonly="readonly" type="password" class="form-control" id="inputPassword3" placeholder="Contraseña" th:field="*{clave}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Primer Apellido</label><input readonly="readonly" type="text" class="form-control" id="name" placeholder="Primer apellido" th:field="*{apellido1}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Segundo Apellido</label><input readonly="readonly" type="text" class="form-control" id="name" placeholder="Segundo apellido" th:field="*{apellido2}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Dirección</label><input readonly="readonly" type="text" class="form-control" id="name" placeholder="Dirección" th:field="*{direccion}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Provincia</label><input readonly="readonly" type="text" class="form-control" id="name" placeholder="Provincia" th:field="*{provincia}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Localidad</label><input readonly="readonly" type="text" class="form-control" id="name" placeholder="Localidad" th:field="*{localidad}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>Teléfono</label><input readonly="readonly" type="text" class="form-control" id="name" placeholder="Teléfono" th:field="*{telefono}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label>DNI</label><input readonly="readonly" type="text" class="form-control" id="name" placeholder="DNI" th:field="*{dni}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-info">
+                    <span >Confirmar</span>
+                    
+                  </button>
+                </div>
+              </div>
+        </form>
+    </div>
+  </div>
+  <div th:insert="@{footer.html}"></div>
+                                      
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	                              
+</script>
+</body>
+</html>
